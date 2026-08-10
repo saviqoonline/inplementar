@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121417" />
+  <title>In-Plementar Conecta · Demo</title>
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-block">
+        <img src="assets/logo.png" alt="In-Plementar" class="brand-logo" />
+        <div class="product-name">Conecta <span>DEMO</span></div>
+      </div>
+
+      <nav class="nav-group" aria-label="Navegación principal">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span><span>Resumen</span></button>
+        <button class="nav-item" data-view="clients"><span class="nav-icon">◎</span><span>Clientes</span><small>24</small></button>
+        <button class="nav-item" data-view="uploads"><span class="nav-icon">⇧</span><span>Cargas</span><small>7</small></button>
+        <button class="nav-item" data-view="reconciliation"><span class="nav-icon">⇄</span><span>Conciliación</span><small class="warn">187</small></button>
+        <button class="nav-item" data-view="pending"><span class="nav-icon">!</span><span>Pendientes</span><small class="warn">56</small></button>
+        <button class="nav-item" data-view="reports"><span class="nav-icon">▥</span><span>Reportes</span></button>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-icon">✦</div>
+        <div>
+          <strong>Semana al día</strong>
+          <p>18 de 24 clientes ya cargaron información.</p>
+        </div>
+      </div>
+
+      <button class="role-switch" id="roleSwitch">
+        <span class="role-dot"></span>
+        <span><b>Vista actual</b><small id="roleLabel">Equipo In-Plementar</small></span>
+        <span class="switch-arrow">↔</span>
+      </button>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú">☰</button>
+        <div class="topbar-title">
+          <p>Portal de información contable</p>
+          <h1 id="pageTitle">Resumen general</h1>
+        </div>
+        <div class="topbar-actions">
+          <label class="period-select">
+            <span>Periodo</span>
+            <select id="periodSelect">
+              <option>Agosto 2026</option>
+              <option>Julio 2026</option>
+              <option>Junio 2026</option>
+            </select>
+          </label>
+          <button class="icon-button" aria-label="Notificaciones">♢<i></i></button>
+          <div class="user-menu">
+            <div class="avatar">CE</div>
+            <div><strong>Camila Estrada</strong><small>Administradora</small></div>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- ADMIN: DASHBOARD -->
+        <section class="view active" id="view-dashboard">
+          <div class="hero-row">
+            <div>
+              <div class="eyebrow">Martes, 4 de agosto</div>
+              <h2>El mes va en <span>82%</span> de avance.</h2>
+              <p>Hay 187 movimientos que necesitan revisión y 56 soportes pendientes. Excel puede descansar cinco minutos.</p>
+            </div>
+            <button class="primary-button" data-go="uploads">＋ Nueva carga</button>
+          </div>
+
+          <div class="metric-grid">
+            <article class="metric-card">
+              <div class="metric-head"><span>Clientes activos</span><i class="metric-symbol">◎</i></div>
+              <strong>24</strong>
+              <p><b class="positive">+3</b> frente al mes anterior</p>
+            </article>
+            <article class="metric-card">
+              <div class="metric-head"><span>Movimientos procesados</span><i class="metric-symbol">⇄</i></div>
+              <strong>28.460</strong>
+              <p><b>92%</b> conciliado o revisado</p>
+            </article>
+            <article class="metric-card attention">
+              <div class="metric-head"><span>Por identificar</span><i class="metric-symbol">!</i></div>
+              <strong>187</strong>
+              <p><b class="negative">46</b> llevan más de 7 días</p>
+            </article>
+            <article class="metric-card">
+              <div class="metric-head"><span>Soportes pendientes</span><i class="metric-symbol">▣</i></div>
+              <strong>56</strong>
+              <p><b>12</b> recibidos hoy</p>
+            </article>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="panel progress-panel">
+              <div class="panel-header">
+                <div><p class="panel-kicker">Avance de agosto</p><h3>Estado por etapa</h3></div>
+                <button class="text-button" data-go="clients">Ver clientes →</button>
+              </div>
+              <div class="stage-list">
+                <div class="stage-row"><div class="stage-label"><span class="stage-dot complete"></span><b>Carga recibida</b><small>18 / 24 clientes</small></div><div class="progress-track"><i style="width:75%"></i></div><strong>75%</strong></div>
+                <div class="stage-row"><div class="stage-label"><span class="stage-dot complete"></span><b>Información procesada</b><small>16 / 24 clientes</small></div><div class="progress-track"><i style="width:67%"></i></div><strong>67%</strong></div>
+                <div class="stage-row"><div class="stage-label"><span class="stage-dot current"></span><b>Conciliación</b><small>13 / 24 clientes</small></div><div class="progress-track"><i style="width:54%"></i></div><strong>54%</strong></div>
+                <div class="stage-row"><div class="stage-label"><span class="stage-dot"></span><b>Cierre contable</b><small>7 / 24 clientes</small></div><div class="progress-track"><i style="width:29%"></i></div><strong>29%</strong></div>
+              </div>
+            </article>
+
+            <article class="panel action-panel">
+              <div class="panel-header">
+                <div><p class="panel-kicker">Atención requerida</p><h3>Lo más urgente</h3></div>
+                <span class="count-pill">8 tareas</span>
+              </div>
+              <div class="action-list">
+                <button class="action-item" data-go="pending"><span class="action-icon red">!</span><span><b>ECOtoy SAS</b><small>34 movimientos sin identificar</small></span><time>2 días</time></button>
+                <button class="action-item" data-go="pending"><span class="action-icon amber">▣</span><span><b>Grupo Marea</b><small>15 soportes faltantes</small></span><time>4 días</time></button>
+                <button class="action-item" data-go="reconciliation"><span class="action-icon blue">⇄</span><span><b>Nova Ingeniería</b><small>Diferencia de $2.480.000</small></span><time>Hoy</time></button>
+                <button class="action-item" data-go="uploads"><span class="action-icon gray">⇧</span><span><b>Fundación Horizonte</b><small>No ha realizado carga semanal</small></span><time>7 días</time></button>
+              </div>
+            </article>
+          </div>
+
+          <article class="panel table-panel">
+            <div class="panel-header">
+              <div><p class="panel-kicker">Seguimiento</p><h3>Clientes recientes</h3></div>
+              <div class="table-actions"><div class="search-box">⌕ <input type="search" placeholder="Buscar cliente" class="client-search" /></div><button class="secondary-button" data-go="clients">Ver todos</button></div>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Cliente</th><th>Última carga</th><th>Movimientos</th><th>Avance</th><th>Pendientes</th><th>Estado</th><th></th></tr></thead>
+                <tbody id="recentClientsBody"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <!-- ADMIN: CLIENTS -->
+        <section class="view" id="view-clients">
+          <div class="section-toolbar">
+            <div><div class="eyebrow">Directorio</div><h2>Clientes y periodos</h2><p>Una sola vista para saber quién entregó, quién está pendiente y quién seguramente cree que el soporte se adjunta por telepatía.</p></div>
+            <button class="primary-button" id="newClientBtn">＋ Nuevo cliente</button>
+          </div>
+          <div class="filter-bar">
+            <div class="search-box large">⌕ <input type="search" placeholder="Buscar por nombre o NIT" id="clientSearch" /></div>
+            <select id="clientStatusFilter"><option value="all">Todos los estados</option><option value="ready">Listo</option><option value="review">En revisión</option><option value="client">Requiere cliente</option><option value="late">Sin cargar</option></select>
+            <select><option>Todos los responsables</option><option>Camila Estrada</option><option>Laura Méndez</option><option>Andrés Rojas</option></select>
+            <button class="secondary-button">Exportar ↓</button>
+          </div>
+          <article class="panel table-panel no-top-radius">
+            <div class="table-wrap">
+              <table class="data-table clients-full-table">
+                <thead><tr><th><input type="checkbox" /></th><th>Cliente</th><th>Responsable</th><th>Cuentas</th><th>Última carga</th><th>Progreso</th><th>Pendientes</th><th>Estado</th><th></th></tr></thead>
+                <tbody id="clientsBody"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <!-- ADMIN: UPLOADS -->
+        <section class="view" id="view-uploads">
+          <div class="section-toolbar compact">
+            <div><div class="eyebrow">Recepción de información</div><h2>Cargas y documentos</h2><p>Sube extractos, auxiliares y soportes. El sistema ordena los archivos antes de que alguien invente “final_final_ahora_si.xlsx”.</p></div>
+          </div>
+          <div class="upload-layout">
+            <article class="panel upload-panel">
+              <div class="step-header"><span>1</span><div><h3>Selecciona el cliente y el periodo</h3><p>Esto permite clasificar automáticamente todo lo que subas.</p></div></div>
+              <div class="form-grid">
+                <label><span>Cliente</span><select id="uploadClient"><option>ECOtoy SAS</option><option>Grupo Marea</option><option>Nova Ingeniería</option><option>Fundación Horizonte</option></select></label>
+                <label><span>Periodo</span><select><option>Agosto 2026</option><option>Julio 2026</option></select></label>
+                <label><span>Tipo de información</span><select id="uploadType"><option>Detectar automáticamente</option><option>Extracto bancario</option><option>Ingresos</option><option>Egresos</option><option>Soportes</option></select></label>
+                <label><span>Banco o cuenta</span><select><option>Detectar automáticamente</option><option>Bancolombia · 01657</option><option>Davivienda · 4082</option><option>Caja menor</option></select></label>
+              </div>
+              <div class="step-header second"><span>2</span><div><h3>Adjunta los archivos</h3><p>Excel, CSV, PDF, JPG o PNG. Máximo 25 MB por archivo.</p></div></div>
+              <label class="drop-zone" id="dropZone">
+                <input type="file" id="fileInput" multiple accept=".xlsx,.xls,.csv,.pdf,.jpg,.jpeg,.png" />
+                <div class="drop-icon">⇧</div>
+                <h4>Arrastra tus archivos aquí</h4>
+                <p>o <b>selecciónalos desde tu equipo</b></p>
+                <small>La aplicación intentará reconocer banco, periodo y tipo de archivo.</small>
+              </label>
+              <div class="file-list" id="fileList"></div>
+              <div class="upload-footer"><span id="fileCount">No hay archivos seleccionados</span><button class="primary-button" id="processBtn" disabled>Procesar archivos →</button></div>
+            </article>
+
+            <aside class="upload-side">
+              <article class="panel mini-status">
+                <div class="panel-header"><div><p class="panel-kicker">Esta semana</p><h3>Recepción</h3></div><strong>18/24</strong></div>
+                <div class="donut" style="--value:75"><div><b>75%</b><small>completo</small></div></div>
+                <div class="mini-legend"><span><i class="green"></i>18 recibidos</span><span><i class="amber"></i>4 parciales</span><span><i class="gray"></i>2 pendientes</span></div>
+              </article>
+              <article class="panel guide-card">
+                <div class="guide-icon">?</div><h3>¿Qué debe subir el cliente?</h3><p>Define una lista de documentos por tipo de empresa y periodo.</p><button class="text-button">Configurar checklist →</button>
+              </article>
+              <article class="panel latest-uploads">
+                <div class="panel-header"><h3>Últimas cargas</h3><button class="text-button">Ver todas</button></div>
+                <div class="upload-event"><span class="file-type xls">XLS</span><div><b>Movimientos agosto.xlsx</b><small>ECOtoy SAS · hace 18 min</small></div><i>✓</i></div>
+                <div class="upload-event"><span class="file-type pdf">PDF</span><div><b>Extracto Bancolombia.pdf</b><small>Grupo Marea · hace 1 h</small></div><i>✓</i></div>
+                <div class="upload-event"><span class="file-type zip">ZIP</span><div><b>Soportes semana 31.zip</b><small>Nova Ingeniería · hace 3 h</small></div><i class="processing">•••</i></div>
+              </article>
+            </aside>
+          </div>
+        </section>
+
+        <!-- ADMIN: RECONCILIATION -->
+        <section class="view" id="view-reconciliation">
+          <div class="section-toolbar compact">
+            <div><div class="eyebrow">Cruce de información</div><h2>Conciliación bancaria</h2><p>Movimientos bancarios comparados con ingresos, egresos y soportes del cliente.</p></div>
+            <button class="primary-button" id="autoMatchBtn">✦ Ejecutar conciliación</button>
+          </div>
+          <div class="recon-summary">
+            <div class="client-identity"><div class="company-avatar gold">EC</div><div><strong>ECOtoy SAS</strong><small>NIT 901.458.220-3 · Agosto 2026</small></div><button class="text-button">Cambiar</button></div>
+            <div class="recon-stat"><span>Movimientos</span><b>1.248</b></div>
+            <div class="recon-stat"><span>Conciliados</span><b class="green-text">1.061</b></div>
+            <div class="recon-stat"><span>Pendientes</span><b class="amber-text">187</b></div>
+            <div class="recon-stat"><span>Diferencia</span><b>$0</b></div>
+          </div>
+          <div class="filter-bar recon-filter">
+            <div class="search-box large">⌕ <input type="search" placeholder="Buscar descripción, valor o referencia" id="movementSearch" /></div>
+            <select id="movementStatus"><option value="all">Todos los estados</option><option value="matched">Conciliado</option><option value="suggested">Posible coincidencia</option><option value="pending">Sin identificar</option><option value="support">Falta soporte</option></select>
+            <select id="movementBank"><option value="all">Todos los bancos</option><option value="Bancolombia">Bancolombia</option><option value="Davivienda">Davivienda</option></select>
+            <button class="secondary-button">Más filtros ⚙</button>
+          </div>
+          <article class="panel table-panel no-top-radius">
+            <div class="bulk-bar hidden" id="bulkBar"><b><span id="selectedCount">0</span> seleccionados</b><button>Marcar conciliados</button><button>Solicitar al cliente</button><button>Asignar responsable</button></div>
+            <div class="table-wrap tall">
+              <table class="data-table recon-table">
+                <thead><tr><th><input type="checkbox" id="selectAllMovements" /></th><th>Fecha</th><th>Banco / cuenta</th><th>Descripción bancaria</th><th class="align-right">Valor</th><th>Coincidencia</th><th>Soporte</th><th>Estado</th><th></th></tr></thead>
+                <tbody id="movementBody"></tbody>
+              </table>
+            </div>
+            <div class="pagination"><span>Mostrando 1–12 de 1.248 movimientos</span><div><button disabled>←</button><button class="active">1</button><button>2</button><button>3</button><button>…</button><button>104</button><button>→</button></div></div>
+          </article>
+        </section>
+
+        <!-- ADMIN: PENDING -->
+        <section class="view" id="view-pending">
+          <div class="section-toolbar">
+            <div><div class="eyebrow">Gestión de excepciones</div><h2>Pendientes del cliente</h2><p>Todo lo que necesita respuesta, soporte o contexto antes de cerrar el periodo.</p></div>
+            <button class="secondary-button" id="sendReminderBtn">✉ Enviar recordatorios</button>
+          </div>
+          <div class="pending-cards">
+            <button class="pending-summary active" data-pending-filter="all"><span>Todos</span><b>243</b><small>12 clientes</small></button>
+            <button class="pending-summary" data-pending-filter="identify"><span>Por identificar</span><b>187</b><small>8 clientes</small></button>
+            <button class="pending-summary" data-pending-filter="support"><span>Falta soporte</span><b>56</b><small>9 clientes</small></button>
+            <button class="pending-summary" data-pending-filter="answered"><span>Respondidos hoy</span><b>31</b><small>Listos para revisar</small></button>
+          </div>
+          <div class="pending-layout">
+            <article class="panel pending-list-panel">
+              <div class="panel-header"><div><p class="panel-kicker">Priorizados</p><h3>Solicitudes abiertas</h3></div><div class="search-box">⌕ <input type="search" placeholder="Buscar" /></div></div>
+              <div id="pendingList" class="pending-list"></div>
+            </article>
+            <article class="panel pending-detail" id="pendingDetail">
+              <div class="empty-detail"><div>↗</div><h3>Selecciona un pendiente</h3><p>Aquí aparecerá el movimiento, la conversación y los soportes relacionados.</p></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ADMIN: REPORTS -->
+        <section class="view" id="view-reports">
+          <div class="section-toolbar">
+            <div><div class="eyebrow">Información para decidir</div><h2>Reportes y exportaciones</h2><p>Resultados listos para revisar, descargar o llevar al software contable.</p></div>
+          </div>
+          <div class="report-grid">
+            <article class="report-card"><span class="report-icon">⇄</span><div><h3>Conciliación por cliente</h3><p>Movimientos conciliados, pendientes y diferencias del periodo.</p></div><button class="secondary-button download-demo">Generar reporte</button></article>
+            <article class="report-card"><span class="report-icon">▣</span><div><h3>Soportes pendientes</h3><p>Detalle de documentos faltantes por cliente y responsable.</p></div><button class="secondary-button download-demo">Generar reporte</button></article>
+            <article class="report-card"><span class="report-icon">◎</span><div><h3>Seguimiento de clientes</h3><p>Cumplimiento semanal, tiempos de respuesta y cargas recibidas.</p></div><button class="secondary-button download-demo">Generar reporte</button></article>
+            <article class="report-card"><span class="report-icon">↗</span><div><h3>Exportación contable</h3><p>Archivo homologado para importar al sistema contable.</p></div><button class="secondary-button download-demo">Preparar archivo</button></article>
+          </div>
+          <article class="panel chart-panel">
+            <div class="panel-header"><div><p class="panel-kicker">Últimos 6 meses</p><h3>Eficiencia del proceso</h3></div><select><option>Todos los clientes</option></select></div>
+            <div class="chart-legend"><span><i></i>Conciliación automática</span><span><i></i>Revisión manual</span><span><i></i>Pendientes del cliente</span></div>
+            <div class="fake-chart">
+              <div class="y-axis"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+              <div class="bars">
+                <div class="bar-group"><div class="bar-stack"><i style="height:56%"></i><i style="height:26%"></i><i style="height:18%"></i></div><span>Mar</span></div>
+                <div class="bar-group"><div class="bar-stack"><i style="height:61%"></i><i style="height:25%"></i><i style="height:14%"></i></div><span>Abr</span></div>
+                <div class="bar-group"><div class="bar-stack"><i style="height:65%"></i><i style="height:24%"></i><i style="height:11%"></i></div><span>May</span></div>
+                <div class="bar-group"><div class="bar-stack"><i style="height:71%"></i><i style="height:21%"></i><i style="height:8%"></i></div><span>Jun</span></div>
+                <div class="bar-group"><div class="bar-stack"><i style="height:77%"></i><i style="height:18%"></i><i style="height:5%"></i></div><span>Jul</span></div>
+                <div class="bar-group"><div class="bar-stack"><i style="height:82%"></i><i style="height:14%"></i><i style="height:4%"></i></div><span>Ago</span></div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- CLIENT VIEW -->
+        <section class="view client-view" id="view-clientPortal">
+          <div class="client-welcome">
+            <div><div class="eyebrow">Portal del cliente</div><h2>Hola, equipo ECOtoy 👋</h2><p>Esta semana tienen 3 tareas pendientes. Resolverlas toma aproximadamente 8 minutos.</p></div>
+            <div class="overall-status"><div class="status-ring"><span>87%</span></div><div><small>Estado del periodo</small><strong>Información casi lista</strong><p>Agosto 2026</p></div></div>
+          </div>
+          <div class="client-task-grid">
+            <article class="client-task done"><span class="task-number">✓</span><div><small>Paso 1</small><h3>Extractos bancarios</h3><p>2 archivos recibidos y procesados.</p></div><b>Completado</b></article>
+            <article class="client-task current"><span class="task-number">2</span><div><small>Paso 2</small><h3>Movimientos por identificar</h3><p>3 transacciones necesitan contexto.</p></div><button class="primary-button" id="clientResolveBtn">Resolver ahora</button></article>
+            <article class="client-task"><span class="task-number">3</span><div><small>Paso 3</small><h3>Soportes pendientes</h3><p>5 documentos aún no han sido adjuntados.</p></div><button class="secondary-button" data-client-tab="supports">Adjuntar</button></article>
+          </div>
+          <div class="client-main-grid">
+            <article class="panel client-pending-panel">
+              <div class="panel-header"><div><p class="panel-kicker">Necesitamos tu ayuda</p><h3>Movimientos por resolver</h3></div><span class="count-pill">3 pendientes</span></div>
+              <div id="clientQuestionList"></div>
+            </article>
+            <aside class="client-side-column">
+              <article class="panel help-card"><div class="help-avatar">CM</div><div><small>Tu contacto en In-Plementar</small><h3>Camila Méndez</h3><p>¿Tienes alguna duda sobre la información solicitada?</p><button class="secondary-button">Escribir mensaje</button></div></article>
+              <article class="panel timeline-card"><h3>Actividad reciente</h3><div class="timeline-item"><i></i><div><b>Extracto Bancolombia procesado</b><small>Hoy, 10:42 a. m.</small></div></div><div class="timeline-item"><i></i><div><b>12 movimientos conciliados</b><small>Ayer, 4:18 p. m.</small></div></div><div class="timeline-item"><i></i><div><b>Soporte recibido</b><small>1 de agosto, 11:06 a. m.</small></div></div></article>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="client-drawer" id="clientDrawer" aria-hidden="true">
+    <div class="drawer-header"><div><p class="panel-kicker">Detalle del cliente</p><h2 id="drawerClientName">ECOtoy SAS</h2></div><button class="drawer-close" id="drawerClose">×</button></div>
+    <div class="drawer-content">
+      <div class="drawer-company"><div class="company-avatar gold">EC</div><div><strong>NIT 901.458.220-3</strong><small>Responsable: Camila Estrada</small></div><span class="status-badge client">Requiere cliente</span></div>
+      <div class="drawer-progress"><div><span>Avance de agosto</span><b>87%</b></div><div class="progress-track"><i style="width:87%"></i></div></div>
+      <div class="drawer-stats"><div><span>Movimientos</span><b>1.248</b></div><div><span>Pendientes</span><b>34</b></div><div><span>Soportes</span><b>8</b></div></div>
+      <h3>Checklist del periodo</h3>
+      <div class="checklist"><div class="check-row done"><i>✓</i><span><b>Extractos bancarios</b><small>2 archivos · procesados</small></span></div><div class="check-row done"><i>✓</i><span><b>Ingresos y egresos</b><small>1.248 registros · procesados</small></span></div><div class="check-row current"><i>!</i><span><b>Resolver movimientos</b><small>34 pendientes de respuesta</small></span><button data-go="pending">Abrir</button></div><div class="check-row"><i>▣</i><span><b>Adjuntar soportes</b><small>8 documentos faltantes</small></span><button data-go="pending">Abrir</button></div></div>
+      <h3>Última actividad</h3>
+      <div class="activity-feed"><div><i></i><span><b>Archivo cargado por el cliente</b><small>Movimientos agosto.xlsx · hace 18 min</small></span></div><div><i></i><span><b>Conciliación automática ejecutada</b><small>1.061 coincidencias encontradas · ayer</small></span></div><div><i></i><span><b>Recordatorio enviado</b><small>Por 8 soportes faltantes · 1 ago</small></span></div></div>
+    </div>
+    <div class="drawer-footer"><button class="secondary-button">Enviar mensaje</button><button class="primary-button" data-go="reconciliation">Abrir conciliación</button></div>
+  </aside>
+
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal" id="movementModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-header"><div><p class="panel-kicker">Resolver movimiento</p><h2 id="modalTitle">Transferencia a Nequi</h2></div><button class="drawer-close modal-close">×</button></div>
+    <div class="modal-content">
+      <div class="movement-card"><div><span>Fecha</span><b id="modalDate">05/08/2026</b></div><div><span>Banco</span><b id="modalBank">Bancolombia · 01657</b></div><div><span>Valor</span><b id="modalValue">− $500.000</b></div><div class="wide"><span>Descripción bancaria</span><b id="modalDescription">TRANSFERENCIAS A NEQUI</b></div></div>
+      <label><span>¿Qué fue este movimiento?</span><select id="modalConcept"><option value="">Seleccionar una opción</option><option>Pago a proveedor</option><option>Gasto operativo</option><option>Transferencia entre cuentas propias</option><option>Pago de nómina</option><option>Gasto personal</option><option>No reconozco el movimiento</option></select></label>
+      <div class="form-grid"><label><span>Tercero o beneficiario</span><input type="text" placeholder="Nombre o razón social" /></label><label><span>Número de factura</span><input type="text" placeholder="Ej. FE-1284" /></label></div>
+      <label><span>Observación</span><textarea placeholder="Agrega contexto útil para el equipo contable"></textarea></label>
+      <label class="support-upload"><input type="file" /><span>＋ Adjuntar soporte</span><small>PDF, JPG, PNG o XML</small></label>
+    </div>
+    <div class="modal-footer"><button class="secondary-button modal-close">Cancelar</button><button class="primary-button" id="saveMovementBtn">Guardar respuesta</button></div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
